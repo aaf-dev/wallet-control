@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--        Income block        -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_value_normal"
+            android:layout_marginTop="@dimen/dp_value_normal"
+            android:layout_marginEnd="@dimen/dp_value_small"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_card_background"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="@dimen/dp_value_small">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_value_normal">
+
+                <TextView
+                    android:id="@+id/tv_income_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/dp_value_normal"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@string/income_label"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/font_increased" />
+
+                <TextView
+                    android:id="@+id/tv_income_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="@dimen/font_large"
+                    tools:text="160 000" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!--        Expense block        -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_value_small"
+            android:layout_marginTop="@dimen/dp_value_normal"
+            android:layout_marginEnd="@dimen/dp_value_normal"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_card_background"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="@dimen/dp_value_small">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_value_normal">
+
+                <TextView
+                    android:id="@+id/tv_expense_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/dp_value_normal"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@string/expense_label"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/font_increased" />
+
+                <TextView
+                    android:id="@+id/tv_expense_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="@dimen/font_large"
+                    tools:text="1 000" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <!--        Balance block        -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_value_normal"
+        android:layout_marginTop="@dimen/dp_value_normal"
+        android:layout_marginEnd="@dimen/dp_value_normal"
+        android:backgroundTint="@color/color_card_background"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="@dimen/dp_value_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_value_normal">
+
+            <TextView
+                android:id="@+id/tv_balance_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/dp_value_normal"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/balance_label"
+                android:textAllCaps="true"
+                android:textSize="@dimen/font_increased" />
+
+            <TextView
+                android:id="@+id/tv_balance_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/montserrat"
+                android:textSize="@dimen/font_large"
+                tools:text="159 000" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_add_income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_value_normal"
+            android:layout_marginTop="@dimen/dp_value_normal"
+            android:layout_marginEnd="@dimen/dp_value_small"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_card_background"
+            android:text="@string/btn_add_income"/>
+
+        <Button
+            android:id="@+id/btn_add_expense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_value_small"
+            android:layout_marginTop="@dimen/dp_value_normal"
+            android:layout_marginEnd="@dimen/dp_value_normal"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_card_background"
+            android:text="@string/btn_add_expense"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_value_small">4dp</dimen>
+    <dimen name="dp_value_normal">8dp</dimen>
+    <dimen name="dp_value_increased">12dp</dimen>
+    <dimen name="dp_value_large">16dp</dimen>
+    <dimen name="dp_value_huge">32dp</dimen>
+
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_increased">20sp</dimen>
+    <dimen name="font_large">24sp</dimen>
+    <dimen name="font_huge">32sp</dimen>
+</resources>

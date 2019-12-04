@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Wallet Control</string>
+
+    <!--        labels      -->
+
+    <string name="income_label">Income</string>
+    <string name="expense_label">Expense</string>
+    <string name="balance_label">Balance</string>
+
+    <!--        buttons     -->
+
+    <string name="btn_add_income">Add income</string>
+    <string name="btn_add_expense">Add expense</string>
+    <string name="btn_add">Add</string>
+
+    <!--        hints       -->
+
+    <string name="date_hint">Date</string>
+    <string name="amount_hint">Amount</string>
+    
+    <!--        other       -->
+
+    <string name="currency_ruble">₽</string>
+    <string name="currency_euro">€</string>
+    <string name="currency_dollar">$</string>
+</resources>
