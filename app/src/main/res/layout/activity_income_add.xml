@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/amount_hint"
-            tools:text="124932"/>
+            tools:text="124932" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

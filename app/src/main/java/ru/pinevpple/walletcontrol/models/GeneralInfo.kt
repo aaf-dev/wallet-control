@@ -1,9 +1,19 @@
 package ru.pinevpple.walletcontrol.models
 
 data class GeneralInfo (
-    val income: Int = 0,
-    val expense: Int = 0,
-    val balance: Int = income - expense,
-    val currency: Int = 0
+    private var income: Int? = 0,
+    private var expense: Int? = 0,
+    private var currency: Int = 0
 ) {
+    fun setIncome(income: Int?) {
+        this.income = income
+    }
+
+    fun getIncome(): Int = income ?: 0
+
+    fun setExpense(expense: Int?) {
+        this.expense = expense
+    }
+
+    fun getExpense(): Int = expense ?: 0
 }

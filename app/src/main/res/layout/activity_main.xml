@@ -48,8 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/montserrat"
-                    android:textSize="@dimen/font_large"
-                    tools:text="160 000" />
+                    android:textSize="@dimen/font_large" />
 
             </LinearLayout>
 
@@ -91,8 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/montserrat"
-                    android:textSize="@dimen/font_large"
-                    tools:text="1 000" />
+                    android:textSize="@dimen/font_large" />
 
             </LinearLayout>
 
@@ -135,8 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/montserrat"
-                android:textSize="@dimen/font_large"
-                tools:text="159 000" />
+                android:textSize="@dimen/font_large" />
 
         </LinearLayout>
 

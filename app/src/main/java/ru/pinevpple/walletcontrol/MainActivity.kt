@@ -9,6 +9,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import ru.pinevpple.walletcontrol.models.GeneralInfo
 import ru.pinevpple.walletcontrol.viewmodels.MainViewModel
 
+private const val INCOME = "INCOME"
+private const val EXPENSE = "EXPENSE"
+private const val BALANCE = "BALANCE"
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var viewModel: MainViewModel
@@ -22,7 +26,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViewModel() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.getInfo().observe(this, Observer { updateData(it) })
+        viewModel.mediator.observe(this, Observer {  })
+        viewModel.infoData.observe(this, Observer { updateData(it) })
+
+    }
+
+    private fun updateData(info: GeneralInfo?) {
+        val income = info?.getIncome() ?: 0
+        val expense = info?.getExpense() ?: 0
+        val balance = income - expense
+
+        tv_income_value.text = income.toString()
+        tv_expense_value.text = expense.toString()
+        tv_balance_value.text = balance.toString()
     }
 
     private fun initClickListeners() {
@@ -36,9 +52,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateData(info: GeneralInfo) {
-        tv_income_value.text = info.income.toString()
-        tv_expense_value.text = info.expense.toString()
-        tv_balance_value.text = info.balance.toString()
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val income = tv_income_value.text
+        val expense = tv_expense_value.text
+        val balance = tv_balance_value.text
+
+        outState.putCharSequence(INCOME, income)
+        outState.putCharSequence(EXPENSE, expense)
+        outState.putCharSequence(BALANCE, balance)
     }
 }
