@@ -1,5 +1,8 @@
 package ru.pinevpple.walletcontrol.models
 
+import java.text.NumberFormat
+import java.util.*
+
 data class GeneralInfo (
     private var income: Int? = 0,
     private var expense: Int? = 0,
@@ -9,13 +12,29 @@ data class GeneralInfo (
         this.income = income
     }
 
-    fun getIncome(): Int = income ?: 0
+    fun getIncomeString(): String {
+        val localIncome = income ?: 0
+        val rawIncomeString = NumberFormat.getNumberInstance(Locale.US).format(localIncome)
+        return rawIncomeString.replace(',', ' ')
+    }
 
     fun setExpense(expense: Int?) {
         this.expense = expense
     }
 
-    fun getExpense(): Int = expense ?: 0
+    fun getExpenseString(): String {
+        val localExpense = expense ?: 0
+        val rawExpenseString = NumberFormat.getNumberInstance(Locale.US).format(localExpense)
+        return rawExpenseString.replace(',', ' ')
+    }
+
+    fun getBalanceString(): String {
+        val localIncome = income ?: 0
+        val localExpense = expense ?: 0
+        val localBalance = localIncome - localExpense
+        val rawBalanceString = NumberFormat.getNumberInstance(Locale.US).format(localBalance)
+        return rawBalanceString.replace(',', ' ')
+    }
 
     fun setCurrency(currency: Int) {
         this.currency = currency

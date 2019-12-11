@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "income_table")
-class IncomeTable(@ColumnInfo(name = "amount") val amount: Int,
+class IncomeTable(@ColumnInfo(name = "amount") val amount: Float,
                   @ColumnInfo(name = "date") val date: String) {
 
     @PrimaryKey(autoGenerate = true)

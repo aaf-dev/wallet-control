@@ -11,4 +11,5 @@
     <dimen name="font_increased">20sp</dimen>
     <dimen name="font_large">24sp</dimen>
     <dimen name="font_huge">32sp</dimen>
+    <dimen name="dp_value_smaller">2dp</dimen>
 </resources>

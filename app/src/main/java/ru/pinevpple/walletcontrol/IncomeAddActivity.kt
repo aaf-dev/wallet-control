@@ -28,7 +28,7 @@ class IncomeAddActivity : AppCompatActivity() {
             if (et_amount.text.isBlank()) {
                 et_amount.error = "Error message!"
             } else {
-                val amount = et_amount.text.toString().toInt()
+                val amount = et_amount.text.toString().toFloat()
                 val date = "07.12.2019" // TODO() et_date.text.toString()
 
                 val income = IncomeTable(amount, date)
