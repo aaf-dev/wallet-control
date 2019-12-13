@@ -15,9 +15,10 @@
 
     <!--        hints       -->
 
-    <string name="date_hint">Date</string>
     <string name="amount_hint">Amount</string>
-    
+    <string name="date_hint">Date</string>
+    <string name="time_hint">Time</string>
+
     <!--        other       -->
 
     <string name="currency_ruble">₽</string>

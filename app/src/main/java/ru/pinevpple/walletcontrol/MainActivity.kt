@@ -3,8 +3,10 @@ package ru.pinevpple.walletcontrol
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.view.marginStart
 import androidx.core.view.setPadding
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,7 +20,10 @@ private const val BALANCE = "BALANCE"
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MainViewModel
+    private lateinit var transaction: FragmentTransaction
+
+    private val addIncome = AddIncomeFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,9 +67,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initClickListeners() {
+        transaction = supportFragmentManager.beginTransaction()
+
         btn_add_income.setOnClickListener {
-            val i = Intent(this@MainActivity, IncomeAddActivity::class.java)
-            startActivity(i)
+            main_container.visibility = View.GONE // TODO() EDITED
+            transaction.replace(R.id.fragment_container, addIncome) // TODO() EDITED
+            transaction.addToBackStack(null) // TODO() EDITED
+            transaction.commit()
         }
         btn_add_expense.setOnClickListener {
             val i = Intent(this@MainActivity, IncomeAddActivity::class.java)
