@@ -1,6 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_fragment_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--        Income block        -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_value_normal"
+                android:layout_marginTop="@dimen/dp_value_normal"
+                android:layout_marginEnd="@dimen/dp_value_small"
+                android:layout_weight="1"
+                android:backgroundTint="@color/color_card_background"
+                app:cardCornerRadius="@dimen/dp_value_normal"
+                app:cardElevation="@dimen/dp_value_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_value_normal">
+
+                    <TextView
+                        android:id="@+id/tv_income_label"
+                        style="@style/CardLabel"
+                        android:text="@string/income_label" />
+
+                    <TextView
+                        android:id="@+id/tv_income_value"
+                        style="@style/CardValue" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!--        Expense block        -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_value_small"
+                android:layout_marginTop="@dimen/dp_value_normal"
+                android:layout_marginEnd="@dimen/dp_value_normal"
+                android:layout_weight="1"
+                android:backgroundTint="@color/color_card_background"
+                app:cardCornerRadius="@dimen/dp_value_normal"
+                app:cardElevation="@dimen/dp_value_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_value_normal">
+
+                    <TextView
+                        android:id="@+id/tv_expense_label"
+                        style="@style/CardLabel"
+                        android:text="@string/expense_label" />
+
+                    <TextView
+                        android:id="@+id/tv_expense_value"
+                        style="@style/CardValue" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!--        Balance block        -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_value_normal"
+            android:layout_marginTop="@dimen/dp_value_normal"
+            android:layout_marginEnd="@dimen/dp_value_normal"
+            android:backgroundTint="@color/color_card_background"
+            app:cardCornerRadius="@dimen/dp_value_normal"
+            app:cardElevation="@dimen/dp_value_small">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_value_normal">
+
+                <TextView
+                    android:id="@+id/tv_balance_label"
+                    style="@style/CardLabel"
+                    android:text="@string/balance_label" />
+
+                <TextView
+                    android:id="@+id/tv_balance_value"
+                    style="@style/CardValue" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!--        Bills block         -->
+
+        <LinearLayout
+            android:id="@+id/ll_cards_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <!--        Buttons         -->
+
+        <LinearLayout
+            style="@style/Widget.AppCompat.ButtonBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_add_income"
+                style="@style/Widget.AppCompat.ButtonBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_value_normal"
+                android:layout_marginTop="@dimen/dp_value_normal"
+                android:layout_marginEnd="@dimen/dp_value_small"
+                android:layout_weight="1"
+                android:text="@string/btn_add_income" />
+
+            <Button
+                android:id="@+id/btn_add_expense"
+                style="@style/Widget.AppCompat.ButtonBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_value_small"
+                android:layout_marginTop="@dimen/dp_value_normal"
+                android:layout_marginEnd="@dimen/dp_value_normal"
+                android:layout_weight="1"
+                android:text="@string/btn_add_expense" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -14,7 +14,6 @@ class AddIncomeVM(app: Application) : AndroidViewModel(app) {
     private val incomeDao = db.incomeDao()
     private val repository: WalletRepository = WalletRepository(incomeDao, null)
 
-
     fun insertIncome(income: IncomeTable) = viewModelScope.launch {
         repository.insertIncome(income)
     }

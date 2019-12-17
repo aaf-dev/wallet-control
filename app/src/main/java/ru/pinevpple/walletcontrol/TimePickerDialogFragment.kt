@@ -15,7 +15,7 @@ class TimePickerDialogFragment : DialogFragment(), TimePickerDialog.OnTimeSetLis
     private lateinit var transfer: Transfer
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val hour = c.get(Calendar.HOUR)
+        val hour = c.get(Calendar.HOUR_OF_DAY)
         val minute = c.get(Calendar.MINUTE)
         return TimePickerDialog(activity, this, hour, minute, DateFormat.is24HourFormat(activity))
     }
@@ -26,7 +26,7 @@ class TimePickerDialogFragment : DialogFragment(), TimePickerDialog.OnTimeSetLis
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        c.set(Calendar.HOUR, hourOfDay)
+        c.set(Calendar.HOUR_OF_DAY, hourOfDay)
         c.set(Calendar.MINUTE, minute)
         transfer.transferTime(c.time)
     }
