@@ -1,4 +1,4 @@
-package ru.pinevpple.walletcontrol
+package ru.pinevpple.walletcontrol.ui
 
 import android.app.Dialog
 import android.app.TimePickerDialog

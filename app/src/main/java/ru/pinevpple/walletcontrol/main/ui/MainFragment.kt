@@ -1,4 +1,4 @@
-package ru.pinevpple.walletcontrol
+package ru.pinevpple.walletcontrol.main.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -12,18 +12,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.bills_list_template.view.*
-import ru.pinevpple.walletcontrol.models.GeneralInfo
-import ru.pinevpple.walletcontrol.viewmodels.MainViewModel
+import ru.pinevpple.walletcontrol.income.ui.AddIncomeFragment
+import ru.pinevpple.walletcontrol.R
+import ru.pinevpple.walletcontrol.db.model.BillsTable
+import ru.pinevpple.walletcontrol.main.model.MainData
+import ru.pinevpple.walletcontrol.main.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var addIncomeFragment: AddIncomeFragment
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("M_fragments", "fragment_main started")
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,16 +34,16 @@ class MainFragment : Fragment() {
         initViewModel()
         initClickListeners()
         main_fragment_root.smoothScrollTo(0, 500)
-        createCard(5)
     }
 
     private fun initViewModel() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         viewModel.mediator.observe(this, Observer { })
         viewModel.infoData.observe(this, Observer { updateData(it) })
+        viewModel.billsList?.observe(this, Observer { createCard(it) })
     }
 
-    private fun updateData(info: GeneralInfo?) {
+    private fun updateData(info: MainData?) {
         val income = info?.getIncomeString() ?: "0"
         val expense = info?.getExpenseString() ?: "0"
         val balance = info?.getBalanceString() ?: "0"
@@ -60,32 +58,39 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun createCard(quantity: Int) {
-        for (i in 0 until quantity) {
-            val layout = layoutInflater.inflate(R.layout.bills_list_template, null)
-            val balance = i * 15 * 325 * 43
+    private fun createCard(list: List<BillsTable>) {
+        val quantity = list.size
+        ll_cards_container.setPadding(16)
+        if (quantity == 0) {
+            val layout = layoutInflater.inflate(R.layout.bills_list_empty_template, null)
+            ll_cards_container.addView(layout, 0)
+        } else {
+            for (i in 0 until quantity) {
+                val layout = layoutInflater.inflate(R.layout.bills_list_template, null)
+                layout.tv_bill_name.text = list[i].title
+                layout.tv_bill_description.text = list[i].type.label
+                layout.tv_bill_balance.text = list[i].balance.toString()
+                layout.iv_bill_image.setImageResource(R.drawable.ic_launcher_background)
 
-            ll_cards_container.setPadding(16)
-
-            layout.tv_bill_name.text = "Test $i"
-            layout.tv_bill_description.text = "Description $i"
-            layout.tv_bill_balance.text = "$balance"
-            layout.iv_bill_image.setImageResource(R.drawable.ic_launcher_background)
-
-            ll_cards_container.addView(layout, i)
+                ll_cards_container.addView(layout, i)
+            }
         }
     }
 
     private fun startAddIncomeFragment() {
-        addIncomeFragment = AddIncomeFragment()
+        Log.d("M_Fragments", "started second fragment")
+        addIncomeFragment =
+            AddIncomeFragment()
         val t: FragmentTransaction = fragmentManager!!.beginTransaction()
-        t.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+        t.setCustomAnimations(
+            android.R.animator.fade_in,
+            android.R.animator.fade_out,
+            android.R.animator.fade_in,
+            android.R.animator.fade_out
+        )
         t.replace(R.id.root_container, addIncomeFragment, "fragment_add_income")
         t.setReorderingAllowed(true)
         t.addToBackStack(tag)
         t.commit()
-        Log.d("M_WC", "started second fragment")
     }
-
-
 }

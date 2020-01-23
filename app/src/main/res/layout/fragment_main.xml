@@ -5,7 +5,7 @@
     android:id="@+id/main_fragment_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    tools:context=".main.ui.MainFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

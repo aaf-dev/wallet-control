@@ -1,4 +1,4 @@
-package ru.pinevpple.walletcontrol.models
+package ru.pinevpple.walletcontrol.db.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,4 +1,4 @@
-package ru.pinevpple.walletcontrol
+package ru.pinevpple.walletcontrol.ui
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -10,7 +10,8 @@ import java.util.*
 
 class DatePickerDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
-    private val timePicker: TimePickerDialogFragment = TimePickerDialogFragment()
+    private val timePicker: TimePickerDialogFragment =
+        TimePickerDialogFragment()
     private val c = Calendar.getInstance()
 
     private lateinit var transfer: Transfer

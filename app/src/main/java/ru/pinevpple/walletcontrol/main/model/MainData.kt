@@ -1,9 +1,9 @@
-package ru.pinevpple.walletcontrol.models
+package ru.pinevpple.walletcontrol.main.model
 
 import java.text.NumberFormat
 import java.util.*
 
-data class GeneralInfo (
+data class MainData (
     private var income: Int? = 0,
     private var expense: Int? = 0,
     private var currency: Int? = 0

@@ -6,6 +6,11 @@
     <string name="income_label">Income</string>
     <string name="expense_label">Expense</string>
     <string name="balance_label">Balance</string>
+    <string name="no_bills_label">You have no bills yet.</string>
+    <string name="cash_label">Cash</string>
+    <string name="debit_label">Debit</string>
+    <string name="credit_label">Credit</string>
+    <string name="deposit_label">Deposit</string>
 
     <!--        buttons     -->
 

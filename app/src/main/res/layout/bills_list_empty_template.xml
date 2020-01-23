@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_value_small"
+        android:layout_marginTop="@dimen/dp_value_large"
+        android:layout_marginEnd="@dimen/dp_value_small"
+        android:layout_marginBottom="@dimen/dp_value_large"
+        android:backgroundTint="@color/color_background"
+        app:cardCornerRadius="@dimen/dp_value_increased"
+        app:cardElevation="@dimen/dp_value_smaller"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_list_empty_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="@string/no_bills_label"
+                android:textColor="@color/color_primary_text"
+                android:textSize="@dimen/font_normal" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

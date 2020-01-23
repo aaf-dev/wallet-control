@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import ru.pinevpple.walletcontrol.main.ui.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         val t: FragmentTransaction = supportFragmentManager.beginTransaction()
         t.add(R.id.root_container, mainFragment, "fragment_main")
         t.commit()
-//        startingMainFragment()
     }
 
     override fun onBackPressed() {
