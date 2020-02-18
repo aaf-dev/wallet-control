@@ -12,103 +12,83 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!--        Income block        -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_value_normal"
-                android:layout_marginTop="@dimen/dp_value_normal"
-                android:layout_marginEnd="@dimen/dp_value_small"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_card_background"
-                app:cardCornerRadius="@dimen/dp_value_normal"
-                app:cardElevation="@dimen/dp_value_small">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="@dimen/dp_value_normal">
-
-                    <TextView
-                        android:id="@+id/tv_income_label"
-                        style="@style/CardLabel"
-                        android:text="@string/income_label" />
-
-                    <TextView
-                        android:id="@+id/tv_income_value"
-                        style="@style/CardValue" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <!--        Expense block        -->
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_value_small"
-                android:layout_marginTop="@dimen/dp_value_normal"
-                android:layout_marginEnd="@dimen/dp_value_normal"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_card_background"
-                app:cardCornerRadius="@dimen/dp_value_normal"
-                app:cardElevation="@dimen/dp_value_small">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="@dimen/dp_value_normal">
-
-                    <TextView
-                        android:id="@+id/tv_expense_label"
-                        style="@style/CardLabel"
-                        android:text="@string/expense_label" />
-
-                    <TextView
-                        android:id="@+id/tv_expense_value"
-                        style="@style/CardValue" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-
-        <!--        Balance block        -->
-
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_value_normal"
-            android:layout_marginTop="@dimen/dp_value_normal"
-            android:layout_marginEnd="@dimen/dp_value_normal"
             android:backgroundTint="@color/color_card_background"
-            app:cardCornerRadius="@dimen/dp_value_normal"
-            app:cardElevation="@dimen/dp_value_small">
+            app:cardElevation="@dimen/dp_value_smaller">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="@dimen/dp_value_normal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_balance_label"
-                    style="@style/CardLabel"
-                    android:text="@string/balance_label" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
-                <TextView
-                    android:id="@+id/tv_balance_value"
-                    style="@style/CardValue" />
+                    <!--        Income block        -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_value_normal">
+
+                        <TextView
+                            android:id="@+id/tv_income_label"
+                            style="@style/CardLabel"
+                            android:text="@string/income_label" />
+
+                        <TextView
+                            android:id="@+id/tv_income_value"
+                            style="@style/CardValue" />
+
+                    </LinearLayout>
+
+                    <!--        Expense block        -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_value_normal">
+
+                        <TextView
+                            android:id="@+id/tv_expense_label"
+                            style="@style/CardLabel"
+                            android:text="@string/expense_label" />
+
+                        <TextView
+                            android:id="@+id/tv_expense_value"
+                            style="@style/CardValue" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--        Balance block        -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_value_normal">
+
+                    <TextView
+                        android:id="@+id/tv_balance_label"
+                        style="@style/CardLabel"
+                        android:text="@string/balance_label" />
+
+                    <TextView
+                        android:id="@+id/tv_balance_value"
+                        style="@style/CardValue" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

@@ -1,6 +1,7 @@
 package ru.pinevpple.walletcontrol.repository
 
 import androidx.lifecycle.LiveData
+import io.reactivex.Flowable
 import ru.pinevpple.walletcontrol.db.model.BillsTable
 import ru.pinevpple.walletcontrol.db.dao.Dao
 import ru.pinevpple.walletcontrol.db.model.ExpenseTable

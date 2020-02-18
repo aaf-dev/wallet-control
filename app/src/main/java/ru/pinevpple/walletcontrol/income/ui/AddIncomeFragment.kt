@@ -1,6 +1,7 @@
 package ru.pinevpple.walletcontrol.income.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,10 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProviders
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
+import com.uber.autodispose.autoDispose
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add_income.*
 import ru.pinevpple.walletcontrol.R
 import ru.pinevpple.walletcontrol.db.model.IncomeTable
@@ -42,14 +47,14 @@ class AddIncomeFragment : Fragment(), Transfer {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initViewModel()
-        initClickListeners()
+        clickListeners()
     }
 
     private fun initViewModel() {
         viewModel = ViewModelProviders.of(this).get(AddIncomeViewModel::class.java)
     }
 
-    private fun initClickListeners() {
+    private fun clickListeners() {
         et_date.setOnClickListener {
             datePicker.setTargetFragment(this, 0)
             datePicker.show(fragmentManager!!, "dialogfragment_datePicker")
@@ -62,7 +67,7 @@ class AddIncomeFragment : Fragment(), Transfer {
 
         btn_done.setOnClickListener {
             if (et_amount.text.isBlank()) {
-                et_amount.error = "Error message!" // TODO() Create error message!
+                et_amount.error = "Error message!" // TODO: Create error message
             } else {
                 sendNewIncome()
                 fragmentManager!!.popBackStack("fragment_main", FragmentManager.POP_BACK_STACK_INCLUSIVE)
@@ -71,11 +76,22 @@ class AddIncomeFragment : Fragment(), Transfer {
     }
 
     private fun sendNewIncome() {
+        Log.d("WALLET_CONTROL", "sendNewIncome()")
         val amount = et_amount.text.toString().toFloat()
         val date = Utils.formattedDate(et_date.text.toString(), et_time.text.toString())
-        val income =
-            IncomeTable(amount, date)
-        viewModel.insertIncome(income)
+        val income = IncomeTable(amount, date)
+        viewModel.addIncome(income)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .autoDispose(AndroidLifecycleScopeProvider.from(viewLifecycleOwner))
+            .subscribe(
+                {
+                    Log.d("WALLET_CONTROL", "Sended new income")
+                },
+                {
+                    Log.e("WALLET_CONTROL_ERROR", "$it")
+                }
+            )
     }
 
     override fun transferDate(date: Date) {

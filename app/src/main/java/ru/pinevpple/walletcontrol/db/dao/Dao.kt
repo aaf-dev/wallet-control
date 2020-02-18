@@ -5,6 +5,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import io.reactivex.Flowable
+import io.reactivex.FlowableOnSubscribe
 import ru.pinevpple.walletcontrol.db.model.BillsTable
 import ru.pinevpple.walletcontrol.db.model.ExpenseTable
 import ru.pinevpple.walletcontrol.db.model.IncomeTable
@@ -17,6 +19,9 @@ object Dao {
 
     @Dao
     interface IncomeDao {
+        @Query("SELECT * FROM $INCOME_TABLE ORDER BY date DESC")
+        fun test(): Flowable<List<IncomeTable>>
+
         @Query("SELECT * from $INCOME_TABLE ORDER BY date ASC")
         fun getListSortedByDate(): LiveData<List<IncomeTable>>
 

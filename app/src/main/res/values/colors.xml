@@ -5,7 +5,7 @@
     <color name="color_primary_dark">#B8B8B8</color>
     <color name="color_accent">#3F51B5</color>
     <color name="color_background">#F8F8F8</color>
-    <color name="color_card_background">#E6E6E6</color>
+    <color name="color_card_background">#EEEEEE</color>
     <color name="color_primary_text">#707070</color>
     <color name="color_secondary_text">#858585</color>
 

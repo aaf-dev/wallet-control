@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "bills_table")
 class BillsTable(
     @ColumnInfo(name = "name") val title: String,
-    @ColumnInfo(name = "type") val type: BillType,
+    @ColumnInfo(name = "type") val type: String,
     @ColumnInfo(name = "balance") val balance: Int,
     @ColumnInfo(name = "priority") val priority: Int
 ) {
